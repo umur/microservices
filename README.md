@@ -1,8 +1,8 @@
 # Microservices
 
 ### Service Discovery
-Eureko.
+NetflixOSS Eureka
 
 
 ### Config Server
-Remote configuration files.
+Spring Cloud Config Server
