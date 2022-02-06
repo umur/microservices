@@ -1,8 +1,8 @@
 # Microservices
 
 ### Service Discovery
+Eureko.
 
 
-
-### [Service Discovery](#service-discovery)
-Eureko
+### Config Server
+Remote configuration files.
