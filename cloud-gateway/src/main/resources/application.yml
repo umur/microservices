@@ -5,9 +5,9 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: http://localhost:8080/users
+          uri: lb://user
           predicates:
-            - Path=/users
+            - Path=/users/**
 
 eureka:
   client:
