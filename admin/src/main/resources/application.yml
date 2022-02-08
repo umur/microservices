@@ -5,4 +5,6 @@ spring:
   boot:
     application:
       name: admin
+    admin:
+      routes: endpoints= env, metrics, trace, jolokia, info, configprops
 

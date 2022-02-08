@@ -24,6 +24,14 @@ spring:
         starter:
           client:
             url: http://localhost:8093
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+    health:
+      show-details: always
 eureka:
   client:
     service-url:
