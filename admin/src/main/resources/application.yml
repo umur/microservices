@@ -1,0 +1,8 @@
+server:
+  port: 8093
+
+spring:
+  boot:
+    application:
+      name: admin
+

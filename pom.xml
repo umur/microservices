@@ -13,6 +13,7 @@
         <module>service-discovery</module>
         <module>configuration-server</module>
         <module>cloud-gateway</module>
+        <module>admin</module>
     </modules>
 
     <name>microservices</name>
@@ -47,6 +48,17 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>
