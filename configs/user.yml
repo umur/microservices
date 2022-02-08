@@ -23,7 +23,7 @@ spring:
       admin:
         starter:
           client:
-            url: http://localhost:8090
+            url: http://localhost:8093
 eureka:
   client:
     service-url:
