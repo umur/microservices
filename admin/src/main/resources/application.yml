@@ -2,9 +2,18 @@ server:
   port: 8093
 
 spring:
-  boot:
-    application:
-      name: admin
-    admin:
-      routes: endpoints= env, metrics, trace, jolokia, info, configprops
+  application:
+    name: admin
 
+#  boot:
+#    admin:
+#      client:
+#        url=http://localhost:8093
+#
+#  management:
+#    endpoints:
+#      web:
+#        exposure:
+#          include: "*"
+#    health:
+#      show-details: always
