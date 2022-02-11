@@ -1,24 +1,32 @@
 spring:
   application:
     name: cloud-gateway
+  #  cloud:
+  #    gateway:
+  #      routes:
+  #        - id: user-service
+  #          uri: lb://user
+  #          predicates:
+  #            - Path=/users/**
+
   cloud:
     gateway:
-      routes:
-        - id: user-service
-          uri: lb://user
-          predicates:
-            - Path=/users/**
+      discovery:
+        locater:
+          enabled: true
+          lower-case-service-id : true
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
-    register-with-eureka: true
+    register-with-eureka: false
     enabled: true
 
 server:
   port: 9000
+
 management:
   endpoints:
     web:

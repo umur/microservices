@@ -5,6 +5,16 @@ spring:
   application:
     name: admin
 
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    registryFetchIntervalSeconds: 5
+    enabled: true
+
 #  boot:
 #    admin:
 #      client:
