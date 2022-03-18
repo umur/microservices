@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: admin
+#  boot:
+#    admin:
+#      discovery:
+#        ignored-services: admin
 
 
 eureka:
@@ -12,18 +16,5 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-    registryFetchIntervalSeconds: 5
-    enabled: true
 
-#  boot:
-#    admin:
-#      client:
-#        url=http://localhost:8093
-#
-#  management:
-#    endpoints:
-#      web:
-#        exposure:
-#          include: "*"
-#    health:
-#      show-details: always
+
