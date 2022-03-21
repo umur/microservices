@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: postgres
+    container_name: postgres-microservices
     image: postgres
     environment:
       POSTGRES_USER: postgres
@@ -14,7 +14,7 @@ services:
       - postgres
     restart: unless-stopped
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadmin-microservices
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
@@ -30,11 +30,23 @@ services:
 
   zipkin:
     image: openzipkin/zipkin
-    container_name: zipkin
+    container_name: zipkin-microservices
     ports:
       - "9411:9411"
     networks:
       - spring
+
+  vault-server:
+    image: vault:latest
+    container_name: vault-microservices
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_ADDR: "http://0.0.0.0:8200"
+      VAULT_DEV_ROOT_TOKEN_ID: "00000000-0000-0000-0000-000000000000"
+
 
 #  customer:
 #    image: amigoscode/customer:latest

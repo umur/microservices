@@ -1,0 +1,9 @@
+spring:
+ application:
+  name: test-app
+ cloud:
+  vault:
+   host: localhost
+   port: 8200
+   scheme: http
+   token: 00000000-0000-0000-0000-000000000000
