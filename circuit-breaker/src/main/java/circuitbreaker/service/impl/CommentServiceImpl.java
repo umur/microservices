@@ -19,7 +19,6 @@ public class CommentServiceImpl implements CommentService {
 
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
         String url = "https://jsonplaceholder.typicode.com/posts/1/comments";
-
         return circuitBreaker.run(() -> restTemplate.getForObject(url, String.class),
                 throwable -> getDefaultComment());
     }
