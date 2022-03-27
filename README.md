@@ -11,10 +11,15 @@ Asynchronous API Gateway
 Service Discovery with Eureka
 
 ### Spring Actuator
-CircuitBreaker, Hysterix, Micrometers, Prometheus 
+Micrometers, Prometheus 
 
 ### Zipkin - Sleuth
 Distributed Log Tracing
 
 ### Spring Boot Admin
 Monitor Microservices
+
+### Circuit Breaker
+Resilience4j Implementation
+
+### RabbitMQ
