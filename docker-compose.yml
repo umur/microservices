@@ -34,15 +34,34 @@ services:
       VAULT_ADDR: "http://0.0.0.0:8200"
       VAULT_DEV_ROOT_TOKEN_ID: "00000000-0000-0000-0000-000000000000"
 
-# username:guest pw:guest
+  # username:guest pw:guest
   rabbitmq:
     image: rabbitmq:3.9.11-management-alpine
     container_name: rabbitmq-microservices
     ports:
       - "5672:5672"
       - "15672:15672"
-    networks:
-      - spring
+
+  zookeeper:
+    image: "bitnami/zookeeper:latest"
+    container_name: "zookeeper-microservices"
+    ports:
+      - "2181:2181"
+    environment:
+     ALLOW_ANONYMOUS_LOGIN: yes
+
+  kafka:
+    image: bitnami/kafka:latest
+    container_name: "kafka-microservices"
+    ports:
+      - "9092:9092"
+    environment:
+     KAFKA_BROKER_ID: 1
+     KAFKA_LISTENERS: PLAINTEXT://:9092
+     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+     ALLOW_PLAINTEXT_LISTENER: yes
+
 
 #  pgadmin:
 #    container_name: pgadmin-microservices
