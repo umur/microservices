@@ -16,6 +16,7 @@
         <module>admin</module>
         <module>vault</module>
         <module>circuit-breaker</module>
+        <module>rabbitmq-publisher</module>
     </modules>
 
     <name>microservices</name>
