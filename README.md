@@ -23,3 +23,4 @@ Monitor Microservices
 Resilience4j Implementation
 
 ### RabbitMQ
+RabbitMq FanOut Example 
