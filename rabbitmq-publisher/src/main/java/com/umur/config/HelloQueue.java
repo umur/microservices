@@ -8,8 +8,13 @@ import org.springframework.context.annotation.Configuration;
 public class HelloQueue {
 
     @Bean
-    public Queue hiQueue() {
-        return new Queue("hello-queue", true);
+    public Queue hiQueue1() {
+        return new Queue("hello-queue-1", true);
+    }
+
+    @Bean
+    public Queue hiQueue2() {
+        return new Queue("hello-queue-2", true);
     }
 
     @Bean
@@ -18,9 +23,13 @@ public class HelloQueue {
     }
 
     @Bean
-    Binding helloQueueBinding(Queue hiQueue, FanoutExchange helloFanoutExchange) {
-        return BindingBuilder.bind(hiQueue).to(helloFanoutExchange);
+    Binding helloQueue1Binding(Queue hiQueue1, FanoutExchange helloFanoutExchange) {
+        return BindingBuilder.bind(hiQueue1).to(helloFanoutExchange);
     }
 
+    @Bean
+    Binding helloQueue2Binding(Queue hiQueue2, FanoutExchange helloFanoutExchange) {
+        return BindingBuilder.bind(hiQueue2).to(helloFanoutExchange);
+    }
 
 }

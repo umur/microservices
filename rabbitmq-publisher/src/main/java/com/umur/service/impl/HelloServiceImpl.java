@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 public class HelloServiceImpl implements HelloService {
 
     private final RabbitTemplate rabbitTemplate;
-    private final Queue hiQueue;
+    private final Queue hiQueue1;
+    private final Queue hiQueue2;
 
     @Override
     public void send() {
-        rabbitTemplate.convertAndSend(this.hiQueue.getName(), "Hello World: " + System.currentTimeMillis());
+        rabbitTemplate.convertAndSend(this.hiQueue1.getName(), "Q1 -- Hello World: " + System.currentTimeMillis());
+        rabbitTemplate.convertAndSend(this.hiQueue2.getName(), "Q2 -- Hello World: " + System.currentTimeMillis());
     }
 }

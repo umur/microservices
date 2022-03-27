@@ -17,6 +17,8 @@
         <module>vault</module>
         <module>circuit-breaker</module>
         <module>rabbitmq-publisher</module>
+        <module>rabbitmq-consumer-1</module>
+        <module>rabbitmq-consumer-2</module>
     </modules>
 
     <name>microservices</name>
