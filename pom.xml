@@ -20,6 +20,7 @@
         <module>rabbitmq-consumer-1</module>
         <module>rabbitmq-consumer-2</module>
         <module>kafka-producer</module>
+        <module>kafka-consumer-1</module>
     </modules>
 
     <name>microservices</name>
