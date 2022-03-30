@@ -13,18 +13,10 @@ import java.util.Map;
 @Configuration
 public class KafkaTopicsConfig {
 
-    private String bootstrapAddress="localhost:9092";
 
     @Bean
-    public KafkaAdmin kafkaAdmin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        return new KafkaAdmin(configs);
-    }
-
-    @Bean
-    public NewTopic helloTopic() {
-        return new NewTopic("hello-topic", 1, (short) 1);
+    public NewTopic adviceTopic() {
+        return new NewTopic("test", 3, (short) 1);
     }
 
 

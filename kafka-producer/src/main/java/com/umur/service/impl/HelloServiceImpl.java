@@ -2,17 +2,18 @@ package com.umur.service.impl;
 
 import com.umur.service.HelloService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class HelloServiceImpl implements HelloService {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    @Autowired
+    private  KafkaTemplate<String, Object> kafkaTemplate;
 
     @Override
     public void send() {
-        kafkaTemplate.send("hello-topic", "Hello: " + System.currentTimeMillis());
+        kafkaTemplate.send("test", "Hello: " + System.currentTimeMillis());
     }
 }

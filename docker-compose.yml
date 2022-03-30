@@ -55,6 +55,8 @@ services:
     container_name: "kafka-microservices"
     ports:
       - "9092:9092"
+    depends_on:
+      - zookeeper
     environment:
      KAFKA_BROKER_ID: 1
      KAFKA_LISTENERS: PLAINTEXT://:9092
