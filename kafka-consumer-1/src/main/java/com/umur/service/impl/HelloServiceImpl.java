@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class HelloServiceImpl implements HelloService {
 
 
-    @KafkaListener(topics = "test2", containerFactory = "kafkaListenerStringContainerFactory",groupId = "test1")
+    @KafkaListener(topics = "test3", containerFactory = "kafkaListenerStringContainerFactory",groupId = "test33")
     @Override
     public void receive(ConsumerRecord<String, String> cr, @Payload String message) {
         System.out.println(message);

@@ -14,6 +14,6 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public void send() {
-        kafkaTemplate.send("test2", "Hello: " + System.currentTimeMillis());
+        kafkaTemplate.send("test3", "Hello: " + System.currentTimeMillis());
     }
 }

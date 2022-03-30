@@ -16,7 +16,7 @@ public class KafkaTopicsConfig {
 
     @Bean
     public NewTopic adviceTopic() {
-        return new NewTopic("test2", 1, (short) 1);
+        return new NewTopic("test3", 1, (short) 1);
     }
 
 
