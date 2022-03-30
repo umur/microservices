@@ -1,0 +1,11 @@
+server:
+  port: 6062
+
+spring:
+  kafka:
+    consumer:
+      group-id: umur
+      auto-offset-reset: earliest
+    bootstrap-servers: localhost:9092
+
+
