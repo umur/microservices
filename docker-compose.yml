@@ -69,19 +69,21 @@ services:
     container_name: config-server
     ports:
       - "9090:9090"
+    networks:
+      - spring
 
   service-discovery:
     image: umurinan/service-discovery:1.0.0
     container_name: service-discovery
     ports:
       - "8761:8761"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
     depends_on:
       - config-server
       - zipkin
-#      - postgres
-#      - rabbitmq
+    networks:
+      - spring
 
 #  pgadmin:
 #    container_name: pgadmin-microservices
