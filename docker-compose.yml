@@ -64,6 +64,23 @@ services:
      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
      ALLOW_PLAINTEXT_LISTENER: yes
 
+  config-server:
+    image: umurinan/configuration-server:1.0.0
+    container_name: config-server
+    ports:
+      - "9090:9090"
+
+  service-discovery:
+    image: umurinan/service-discovery:1.0.0
+    container_name: service-discovery
+    ports:
+      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+#      - postgres
+#      - rabbitmq
 
 #  pgadmin:
 #    container_name: pgadmin-microservices
