@@ -79,6 +79,7 @@ services:
 #      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       - config-server
+      - zipkin
 #      - postgres
 #      - rabbitmq
 
