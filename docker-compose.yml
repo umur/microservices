@@ -70,7 +70,7 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - spring
+      - config-server-net
 
   service-discovery:
     image: umurinan/service-discovery:1.0.0
@@ -83,7 +83,24 @@ services:
       - config-server
       - zipkin
     networks:
-      - spring
+      - service-discovery-net
+
+networks:
+
+  postgres:
+    driver: bridge
+
+  spring:
+    driver: bridge
+
+  config-server-net:
+    driver: bridge
+    name: microservices-config-server
+
+  service-discovery-net:
+    driver: bridge
+    name: microservices-service-discovery
+
 
 #  pgadmin:
 #    container_name: pgadmin-microservices
@@ -146,11 +163,7 @@ services:
 #      - zipkin
 #      - postgres
 #      - rabbitmq
-networks:
-  postgres:
-    driver: bridge
-  spring:
-    driver: bridge
+
 
 volumes:
   postgres:
