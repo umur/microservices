@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: docker
+  config:
+    import: optional:configserver:http://config-server:9090
 
 ---
 
@@ -8,7 +10,7 @@ spring:
   application:
     name: service-discovery
   config:
-    import: optional:configserver:http://localhost:9090
+    import: configserver:http://localhost:9090
     activate:
       on-profile: dev
 
@@ -18,7 +20,7 @@ spring:
   application:
     name: service-discovery
   config:
-    import: optional:configserver:http://config-server-net:9090
+    import: configserver:http://config-server:9090
     activate:
       on-profile: docker
 

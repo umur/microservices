@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - db-net
     restart: unless-stopped
 
   zipkin:
@@ -21,7 +21,7 @@ services:
     ports:
       - "9411:9411"
     networks:
-      - spring
+      - zipkin-net
 
   vault-server:
     image: vault:latest
@@ -78,17 +78,36 @@ services:
     ports:
       - "8761:8761"
     environment:
-      - SPRING_PROFILES_ACTIVE=default
+      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       - config-server
       - zipkin
     networks:
-      - service-discovery-net
+      - config-server-net
+
+  user:
+    image: umurinan/user-service:1.0.0
+    container_name: user-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - zipkin
+    networks:
+      - config-server-net
+      - db-net
+      - zipkin-net
+
+
 
 networks:
 
-  postgres:
+  db-net:
     driver: bridge
+
+  zipkin-net:
+    driver: bridge
+    name: microservices-zipkin
 
   spring:
     driver: bridge
@@ -97,9 +116,6 @@ networks:
     driver: bridge
     name: microservices-config-server
 
-  service-discovery-net:
-    driver: bridge
-    name: microservices-service-discovery
 
 
 #  pgadmin:

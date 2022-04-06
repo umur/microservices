@@ -11,6 +11,21 @@
 
     <artifactId>service-discovery</artifactId>
 
+    <profiles>
+
+        <profile>
+            <id>dev</id>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>docker</id>
+        </profile>
+
+    </profiles>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -26,7 +41,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-
 
     </dependencies>
 
