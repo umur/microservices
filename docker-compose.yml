@@ -84,6 +84,7 @@ services:
       - zipkin
     networks:
       - config-server-net
+    restart: unless-stopped
 
   user:
     image: umurinan/user-service:1.0.0
@@ -93,10 +94,12 @@ services:
     depends_on:
       - config-server
       - zipkin
+      - postgres
     networks:
       - config-server-net
       - db-net
       - zipkin-net
+    restart: unless-stopped
 
 
 
