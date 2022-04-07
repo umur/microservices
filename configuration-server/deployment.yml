@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-deployment
+  labels:
+    app: config-server
+
+spec:
+
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: config-server
+
+  template:
+
+    metadata:
+      labels:
+        app: config-server
+
+    spec:
+      containers:
+        - name: config-server
+          image: umurinan/config-server:1.0.0
+          ports:
+            - containerPort: 9090

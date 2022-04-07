@@ -65,7 +65,7 @@ services:
      ALLOW_PLAINTEXT_LISTENER: yes
 
   config-server:
-    image: umurinan/configuration-server:1.0.0
+    image: umurinan/config-server:1.0.0
     container_name: config-server
     ports:
       - "9090:9090"
