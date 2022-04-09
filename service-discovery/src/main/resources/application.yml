@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: docker
+    active: dev
   config:
     import: optional:configserver:http://config-server:9090
 

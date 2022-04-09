@@ -64,42 +64,42 @@ services:
      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
      ALLOW_PLAINTEXT_LISTENER: yes
 
-  config-server:
-    image: umurinan/config-server:1.0.0
-    container_name: config-server
-    ports:
-      - "9090:9090"
-    networks:
-      - config-server-net
-
-  service-discovery:
-    image: umurinan/service-discovery:1.0.0
-    container_name: service-discovery
-    ports:
-      - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - config-server
-      - zipkin
-    networks:
-      - config-server-net
-    restart: unless-stopped
-
-  user:
-    image: umurinan/user-service:1.0.0
-    container_name: user-service
-    ports:
-      - "8080:8080"
-    depends_on:
-      - config-server
-      - zipkin
-      - postgres
-    networks:
-      - config-server-net
-      - db-net
-      - zipkin-net
-    restart: unless-stopped
+#  config-server:
+#    image: umurinan/config-server:1.0.0
+#    container_name: config-server
+#    ports:
+#      - "9090:9090"
+#    networks:
+#      - config-server-net
+#
+#  service-discovery:
+#    image: umurinan/service-discovery:1.0.0
+#    container_name: service-discovery
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    depends_on:
+#      - config-server
+#      - zipkin
+#    networks:
+#      - config-server-net
+#    restart: unless-stopped
+#
+#  user:
+#    image: umurinan/user-service:1.0.0
+#    container_name: user-service
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - config-server
+#      - zipkin
+#      - postgres
+#    networks:
+#      - config-server-net
+#      - db-net
+#      - zipkin-net
+#    restart: unless-stopped
 
 
 
