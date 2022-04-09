@@ -1,26 +1,6 @@
 spring:
   application:
     name: cloud-gateway
-#  boot:
-#    admin:
-#      client:
-#        url: http://localhost:8093
-  #  cloud:
-  #    gateway:
-  #      routes:
-  #        - id: user-service
-  #          uri: lb://user
-  #          predicates:
-  #            - Path=/users/**
-
-#  cloud:
-#    gateway:
-#      discovery:
-#        locater:
-#          enabled: true
-#          lower-case-service-id : true
-
-
 
 eureka:
 #  client:
