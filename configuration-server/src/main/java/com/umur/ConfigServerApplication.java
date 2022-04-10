@@ -32,10 +32,10 @@ public class ConfigServerApplication  {
 
     @PostConstruct
     private void postConstruct() {
-       var response= vaultTemplate.read("/kv/data/db");
-        if(response!= null && response.getData()!=null){
-            System.out.println("My username is: " + response.getData().get("data"));
-        }
+//       var response= vaultTemplate.read("/kv/data/db");
+//        if(response!= null && response.getData()!=null){
+//            System.out.println("My username is: " + response.getData().get("data"));
+//        }
 
     }
 

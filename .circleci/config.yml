@@ -1,0 +1,9 @@
+version: 2 
+jobs: 
+ build: 
+ docker: 
+ — image: cimg/openjdk:17 
+ 
+ steps: 
+ — checkout
+ — run: ./mvnw clean install
