@@ -1,0 +1,34 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: default
+
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          skip-ssl-validation: true
+          uri: https://github.com/umur/microservices
+          search-paths: configs
+
+    vault:
+      authentication: TOKEN
+      token: 00000000-0000-0000-0000-000000000000
+
+
+vault:
+  uri: http://localhost:8200
+  token: 00000000-0000-0000-0000-000000000000
+
+
+
+

@@ -27,3 +27,12 @@ RabbitMq FanOut Example
 
 ### Kafka
 Kafka Producer and Consumer
+
+### Vault
+Hashicorp Vault
+
+### Swagger
+API documentation
+
+### Reactive
+Reactive programming with Reactor

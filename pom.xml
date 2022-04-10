@@ -13,7 +13,6 @@
         <module>service-discovery</module>
         <module>configuration-server</module>
         <module>cloud-gateway</module>
-        <module>admin</module>
         <module>vault</module>
         <module>circuit-breaker</module>
         <module>rabbitmq-publisher</module>

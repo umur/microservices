@@ -23,16 +23,6 @@ public class VaultApplication implements CommandLineRunner {
         VaultResponseSupport<Credential> response = vaultTemplate.read("secret/myapp", Credential.class);
         System.out.println(response);
     }
-//
-//    @Override
-//    public ClientAuthentication clientAuthentication() {
-//        return new TokenAuthentication("00000000-0000-0000-0000-000000000000");
-//    }
-//
-//    @Override
-//    public VaultEndpoint vaultEndpoint() {
-//        return VaultEndpoint.create("http://localhost", 8200);
-//    }
 
 
 }
