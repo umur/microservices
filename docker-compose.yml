@@ -26,6 +26,7 @@ services:
   jenkins:
     image: jenkins/jenkins:jdk17-preview
     container_name: microservices-jenkin
+    privileged: true
     ports:
       - "4040:8080"
 
