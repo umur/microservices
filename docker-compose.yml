@@ -23,12 +23,15 @@ services:
     networks:
       - zipkin-net
 
-  jenkins:
-    image: jenkins/jenkins:jdk17-preview
-    container_name: microservices-jenkin
-    privileged: true
-    ports:
-      - "4040:8080"
+#  jenkins:
+#    image: jenkins/jenkins:jdk17-preview
+#    container_name: microservices-jenkin
+#    privileged: true
+##    extra_hosts:
+##      - "host.docker.internal: host-gateway"
+##    network_mode: host
+#    ports:
+#      - "4040:8080"
 
 
   vault-server:
