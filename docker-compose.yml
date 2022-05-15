@@ -23,17 +23,6 @@ services:
     networks:
       - zipkin-net
 
-#  jenkins:
-#    image: jenkins/jenkins:jdk17-preview
-#    container_name: microservices-jenkin
-#    privileged: true
-##    extra_hosts:
-##      - "host.docker.internal: host-gateway"
-##    network_mode: host
-#    ports:
-#      - "4040:8080"
-
-
   vault-server:
     image: vault:latest
     container_name: vault-microservices
@@ -74,6 +63,28 @@ services:
      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
      ALLOW_PLAINTEXT_LISTENER: yes
+
+
+#  keycloak:
+#    depends_on:
+#      - postgres
+#    container_name: "keycloak-microservices"
+#    environment:
+#      DB_VENDOR: postgres
+#      DB_ADDR: postgres
+#      DB_DATABASE: keycloak
+#      DB_USER: postgres
+#      DB_PASSWORD: 1
+#      KEYCLOAK_USER: umurinan
+#      KEYCLOAK_PASSWORD: 1
+#    image: jboss/keycloak:latest
+#    ports:
+#      - "28080:8080"
+#    restart: unless-stopped
+#    networks:
+#      - db-net
+
+
 
 #  config-server:
 #    image: umurinan/config-server:1.0.0
@@ -129,70 +140,6 @@ networks:
   config-server-net:
     driver: bridge
     name: microservices-config-server
-
-
-
-#  pgadmin:
-#    container_name: pgadmin-microservices
-#    image: dpage/pgadmin4
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-#      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-#      PGADMIN_CONFIG_SERVER_MODE: 'False'
-#    volumes:
-#      - pgadmin:/var/lib/pgadmin
-#    ports:
-#      - "5050:80"
-#    networks:
-#      - postgres
-#    restart: unless-stopped
-
-#  customer:
-#    image: amigoscode/customer:latest
-#    container_name: customer
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    networks:
-#      - spring
-#      - postgres
-#    depends_on:
-#      - zipkin
-#      - postgres
-#      - rabbitmq
-
-
-
-
-#  fraud:
-#    image: amigoscode/fraud:latest
-#    container_name: fraud
-#    ports:
-#      - "8081:8081"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    networks:
-#      - spring
-#      - postgres
-#    depends_on:
-#      - zipkin
-#      - postgres
-#      - rabbitmq
-#  notification:
-#    image: amigoscode/notification:latest
-#    container_name: notification
-#    ports:
-#      - "8082:8082"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    networks:
-#      - spring
-#      - postgres
-#    depends_on:
-#      - zipkin
-#      - postgres
-#      - rabbitmq
 
 
 volumes:
