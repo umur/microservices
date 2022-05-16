@@ -23,6 +23,7 @@
         <module>kafka-consumer-2</module>
         <module>reactive</module>
         <module>reactive-client-1</module>
+        <module>resource-server</module>
     </modules>
 
     <name>microservices</name>

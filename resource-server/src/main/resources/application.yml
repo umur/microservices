@@ -1,0 +1,14 @@
+server:
+  port: 1111
+
+
+keycloak:
+  realm: microservices-realm
+
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:28080/auth/realms/microservices-realm
